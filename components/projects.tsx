@@ -7,140 +7,150 @@ import { ArrowUpRight } from 'lucide-react'
 const projects = [
   {
     title: 'WorldGram',
-    description: 'A global social media platform for connecting communities and sharing moments in real-time.',
-    tech: ['Next.js', 'React', 'Prisma', 'PostgreSQL', 'Tailwind CSS'],
+    description:
+      'A global social media platform for connecting communities and sharing moments in real time.',
+    tech: ['Next.js', 'React', 'Prisma', 'PostgreSQL'],
     link: 'https://worldgram.vercel.app',
     github: 'https://github.com/mulugirmay/worldgram',
     image: '/worldgram.png',
     year: '2024',
+    mode: 'image',
   },
   {
     title: 'QuickReach',
-    description: 'Emergency response system connecting citizens with dispatchers and volunteers in seconds.',
-    tech: ['Next.js', 'TypeScript', 'Real-time APIs', 'Maps', 'Node.js'],
+    description:
+      'Emergency response system connecting citizens with dispatchers and volunteers in seconds.',
+    tech: ['Next.js', 'TypeScript', 'APIs', 'Maps'],
     link: 'https://quickreach.vercel.app',
     github: 'https://github.com/mulugirmay/quickreach',
     image: '/quickreach.png',
     year: '2024',
+    mode: 'code',
   },
   {
     title: 'BizChat',
-    description: 'AI-powered business communication platform with real-time messaging and collaboration tools.',
-    tech: ['React', 'WebSockets', 'AI/ML', 'Node.js', 'MongoDB'],
+    description:
+      'AI-powered communication platform with real-time messaging and collaboration tools.',
+    tech: ['React', 'WebSockets', 'AI', 'Node.js'],
     link: 'https://bizchat.vercel.app',
     github: 'https://github.com/mulugirmay/bizchat',
     image: '/bizchat.png',
     year: '2024',
+    mode: 'image',
   },
   {
     title: 'Coin Lists',
-    description: 'Cryptocurrency portfolio tracker with real-time price updates and market analysis.',
-    tech: ['React', 'APIs', 'Charts.js', 'Redux', 'Responsive Design'],
+    description:
+      'A cryptocurrency portfolio tracker with price updates and simple market analysis.',
+    tech: ['React', 'APIs', 'Charts', 'Redux'],
     link: 'https://coinlists.vercel.app',
     github: 'https://github.com/mulugirmay/coinlists',
     image: '/coinlists.png',
     year: '2023',
+    mode: 'code',
   },
 ]
 
+function ProjectPreview({ project }: { project: (typeof projects)[number] }) {
+  if (project.mode === 'code') {
+    return (
+      <div className="rounded-[1.5rem] border border-white/8 bg-[#101b29] p-5 shadow-[0_20px_40px_rgba(0,0,0,0.22)]">
+        <div className="mb-4 flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-primary/90" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
+        </div>
+        <pre className="overflow-x-auto rounded-xl bg-[#0b1320] p-4 font-mono text-[0.8rem] leading-6 text-foreground/65">
+          <code>{`const project = {
+  title: '${project.title}',
+  focus: '${project.year}',
+  status: 'shipped',
+}
+
+console.log(project.title)`}</code>
+        </pre>
+      </div>
+    )
+  }
+
+  return (
+    <div className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#101b29] shadow-[0_20px_40px_rgba(0,0,0,0.22)]">
+      <div className="relative aspect-[16/10]">
+        <Image src={project.image} alt={project.title} fill className="object-cover" />
+      </div>
+    </div>
+  )
+}
+
 export function Projects() {
   return (
-    <section id="projects" className="py-32 px-6 bg-background relative">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-20 text-center">
-          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">
+    <section id="projects" className="px-4 py-16 sm:px-6 lg:py-20">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 text-center">
+          <h2 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Projects
           </h2>
-          <div className="flex justify-center">
-            <div className="w-1 h-12 bg-primary rounded-full"></div>
-          </div>
+          <div className="mx-auto mt-5 h-10 w-px bg-primary/80" />
         </div>
 
-        {/* Projects Grid */}
-        <div className="space-y-24">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
-                index % 2 === 1 ? 'lg:auto-cols-fr' : ''
-              }`}
-              style={{
-                direction: index % 2 === 1 ? 'rtl' : 'ltr',
-              }}
-            >
-              {/* Project Image/Content Box */}
-              <div style={{ direction: 'ltr' }} className="relative">
-                {index % 2 === 1 ? (
-                  // Code snippet for odd projects
-                  <div className="bg-card border border-border rounded-lg p-6 font-mono text-sm">
-                    <div className="text-primary mb-4">
-                      <span className="text-muted-foreground">const</span> <span className="text-foreground">result</span> = <span className="text-primary">await</span> <span className="text-foreground">fetch</span>(<span className="text-primary">&apos;/api/project&apos;</span>)
-                    </div>
-                    <div className="text-primary">
-                      console.<span className="text-foreground">log</span>(<span className="text-primary">&quot;Building amazing projects&quot;</span>)
-                    </div>
-                  </div>
-                ) : (
-                  // Image for even projects
-                  <div className="relative rounded-lg overflow-hidden h-72 lg:h-80">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-              </div>
+        <div className="space-y-16">
+          {projects.map((project, index) => {
+            const mediaFirst = index % 2 === 1
 
-              {/* Project Info */}
-              <div style={{ direction: 'ltr' }} className="space-y-6">
-                <div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
+            return (
+              <div key={project.title} className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+                <div className={mediaFirst ? 'lg:order-2' : 'lg:order-1'}>
+                  <ProjectPreview project={project} />
                 </div>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs font-semibold text-muted-foreground border border-border rounded"
+                <div className={`space-y-5 ${mediaFirst ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div>
+                    <div className="mb-3 flex items-center gap-3 text-[0.8rem] uppercase tracking-[0.28em] text-foreground/40">
+                      <span>{project.year}</span>
+                      <span className="h-px w-8 bg-primary/80" />
+                    </div>
+                    <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-[2rem]">
+                      {project.title}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-[0.96rem] leading-7 text-foreground/60">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2.5">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.72rem] font-medium text-foreground/60"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-sm bg-primary px-5 py-3 text-[0.92rem] font-medium text-primary-foreground transition-all hover:bg-[#ff8a70]"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4 pt-4">
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 bg-primary text-primary-foreground rounded font-bold hover:shadow-lg hover:shadow-primary/50 transition-all"
-                  >
-                    View GitHub
-                  </Link>
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 border-2 border-primary text-primary rounded font-bold hover:bg-primary/10 transition-all inline-flex items-center gap-2"
-                  >
-                    View project
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
+                      View GitHub
+                    </Link>
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-sm border border-primary/70 px-5 py-3 text-[0.92rem] font-medium text-foreground transition-all hover:border-primary hover:bg-primary/10"
+                    >
+                      View project
+                      <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

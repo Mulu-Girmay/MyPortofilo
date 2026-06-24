@@ -6,12 +6,12 @@ import { Contact } from '@/components/contact'
 
 export default function Home() {
   return (
-    <main className="w-full overflow-hidden">
+    <main className="relative w-full overflow-hidden">
       <Navigation />
-      <div className="pt-20">
+      <div>
         <Hero />
-        <Projects />
         <Skills />
+        <Projects />
         <Contact />
       </div>
     </main>

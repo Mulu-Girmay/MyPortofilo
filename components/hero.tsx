@@ -2,104 +2,84 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ExternalLink } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+
+const skills = ['HTML5', 'CSS', 'JavaScript', 'Node.js', 'React', 'Git', 'GitHub']
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-background relative overflow-hidden">
-      {/* Decorative geometric elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 border-4 border-primary/20 transform rotate-45"></div>
-      <div className="absolute bottom-32 left-10 w-24 h-24 border-2 border-primary/15 transform -rotate-12"></div>
-      <div className="absolute top-1/3 left-1/4 w-3 h-3 bg-primary rounded-full opacity-60"></div>
-      
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-        {/* Left Content */}
-        <div className="space-y-8">
-          {/* Greeting */}
-          <div className="space-y-2">
-            <p className="text-primary font-bold text-2xl">
-              Hello <span className="text-primary">.</span>
-            </p>
-            <p className="text-foreground/70 text-xl font-semibold">
-              I&apos;m Mulu
-            </p>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-            Full-Stack<br />Developer
-          </h1>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link
-              href="#projects"
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded font-bold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300"
-            >
-              Get a project?
-            </Link>
-            <Link
-              href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded font-bold hover:bg-primary/10 transition-all duration-300"
-            >
-              My resume
-            </Link>
-          </div>
-
-          {/* Skills */}
-          <div className="space-y-3 pt-8">
-            <p className="text-muted-foreground text-sm font-semibold uppercase tracking-wide">
-              Technical Skills
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {['HTML5', 'CSS', 'JavaScript', 'Node.js', 'React', 'Git', 'GitHub'].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 text-xs font-semibold text-muted-foreground border border-border rounded"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Right Image */}
-        <div className="relative flex justify-center items-center hidden lg:flex">
-          {/* Circular background accent */}
-          <div className="absolute w-80 h-80 rounded-full border-2 border-primary/30 opacity-50"></div>
-          <div className="absolute w-72 h-72 rounded-full bg-primary/10 blur-2xl"></div>
-          
-          {/* Profile Image */}
-          <div className="relative w-64 h-80 flex items-center justify-center">
-            <Image
-              src="/profile.jpg"
-              alt="Mulu Girmay"
-              width={300}
-              height={400}
-              className="relative w-64 h-80 object-cover rounded-lg shadow-2xl"
-              priority
-            />
-          </div>
-        </div>
+    <section
+      id="home"
+      className="relative overflow-hidden px-4 pb-14 pt-28 sm:px-6 lg:pb-20 lg:pt-32"
+    >
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-0 top-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       </div>
 
-      {/* About Section below hero */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent pt-20 pb-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-foreground mb-8">About me</h2>
-          <div className="grid grid-cols-3 gap-8 max-w-2xl">
-            <div>
-              <p className="text-3xl font-bold text-primary">120+</p>
-              <p className="text-muted-foreground text-sm mt-2">Completed Projects</p>
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="space-y-7">
+            <div className="space-y-3">
+              <p className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Hello<span className="text-primary">.</span>
+              </p>
+              <p className="text-xl font-medium tracking-tight text-foreground/80 sm:text-2xl">
+                I&apos;m Jensen
+              </p>
             </div>
-            <div>
-              <p className="text-3xl font-bold text-primary">95%</p>
-              <p className="text-muted-foreground text-sm mt-2">Client satisfaction</p>
+
+            <h1 className="max-w-xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Software Developer
+            </h1>
+
+            <p className="max-w-lg text-[0.98rem] leading-7 text-foreground/65">
+              I build clean, responsive interfaces and practical web products with a dark, polished finish.
+            </p>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-5 py-3 text-[0.95rem] font-medium text-primary-foreground transition-all duration-300 hover:translate-y-[-1px] hover:bg-[#ff8a70]"
+              >
+                Get a project?
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-sm border border-primary/80 px-5 py-3 text-[0.95rem] font-medium text-foreground transition-all duration-300 hover:border-primary hover:bg-primary/10"
+              >
+                My resume
+              </Link>
             </div>
-            <div>
-              <p className="text-3xl font-bold text-primary">10+</p>
-              <p className="text-muted-foreground text-sm mt-2">Years of experience</p>
+
+            <div className="pt-7">
+              <div className="mb-4 h-px w-14 bg-primary/70" />
+              <div className="flex flex-wrap gap-2.5">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-white/6 bg-white/3 px-3 py-1 text-[0.72rem] font-medium tracking-wide text-foreground/45"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="absolute -right-2 top-8 h-72 w-72 rounded-full border-[10px] border-primary/80 opacity-70 sm:h-80 sm:w-80 lg:h-[26rem] lg:w-[26rem]" />
+            <div className="absolute right-10 top-16 h-56 w-56 rounded-full bg-primary/10 blur-2xl" />
+            <div className="relative mt-4 h-[22rem] w-[22rem] overflow-hidden rounded-full border border-primary/15 bg-[#111c29] shadow-[0_0_0_1px_rgba(239,122,96,0.08),0_30px_80px_rgba(0,0,0,0.45)] sm:h-[25rem] sm:w-[25rem] lg:h-[28rem] lg:w-[28rem]">
+              <Image
+                src="/profile.jpg"
+                alt="Jensen Omega"
+                fill
+                priority
+                sizes="(max-width: 1024px) 22rem, 28rem"
+                className="object-cover object-center"
+              />
             </div>
           </div>
         </div>

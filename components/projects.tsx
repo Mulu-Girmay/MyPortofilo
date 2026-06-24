@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -12,9 +10,9 @@ const projects = [
     tech: ['Next.js', 'React', 'Prisma', 'PostgreSQL'],
     link: 'https://worldgram.vercel.app',
     github: 'https://github.com/mulugirmay/worldgram',
-    image: '/worldgram.png',
+    image: '/telegram.png',
     year: '2024',
-    mode: 'image',
+    aspect: 'aspect-[16/9]',
   },
   {
     title: 'QuickReach',
@@ -25,7 +23,7 @@ const projects = [
     github: 'https://github.com/mulugirmay/quickreach',
     image: '/quickreach.png',
     year: '2024',
-    mode: 'code',
+    aspect: 'aspect-[16/9]',
   },
   {
     title: 'BizChat',
@@ -34,9 +32,9 @@ const projects = [
     tech: ['React', 'WebSockets', 'AI', 'Node.js'],
     link: 'https://bizchat.vercel.app',
     github: 'https://github.com/mulugirmay/bizchat',
-    image: '/bizchat.png',
+    image: '/bizcaht.png',
     year: '2024',
-    mode: 'image',
+    aspect: 'aspect-[16/9]',
   },
   {
     title: 'Coin Lists',
@@ -45,38 +43,22 @@ const projects = [
     tech: ['React', 'APIs', 'Charts', 'Redux'],
     link: 'https://coinlists.vercel.app',
     github: 'https://github.com/mulugirmay/coinlists',
-    image: '/coinlists.png',
+    image: '/image.png',
     year: '2023',
-    mode: 'code',
+    aspect: 'aspect-[4/5]',
   },
 ]
 
 function ProjectPreview({ project }: { project: (typeof projects)[number] }) {
-  if (project.mode === 'code') {
-    return (
-      <div className="rounded-[1.5rem] border border-white/8 bg-[#101b29] p-5 shadow-[0_20px_40px_rgba(0,0,0,0.22)]">
-        <div className="mb-4 flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-primary/90" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-        </div>
-        <pre className="overflow-x-auto rounded-xl bg-[#0b1320] p-4 font-mono text-[0.8rem] leading-6 text-foreground/65">
-          <code>{`const project = {
-  title: '${project.title}',
-  focus: '${project.year}',
-  status: 'shipped',
-}
-
-console.log(project.title)`}</code>
-        </pre>
-      </div>
-    )
-  }
-
   return (
     <div className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#101b29] shadow-[0_20px_40px_rgba(0,0,0,0.22)]">
-      <div className="relative aspect-[16/10]">
-        <Image src={project.image} alt={project.title} fill className="object-cover" />
+      <div className={`relative ${project.aspect}`}>
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          className="object-contain bg-[#101b29] p-2"
+        />
       </div>
     </div>
   )

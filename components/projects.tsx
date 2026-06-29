@@ -1,63 +1,83 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Sparkles } from 'lucide-react'
+
+import { Reveal } from '@/components/reveal'
 
 const projects = [
   {
     title: 'WorldGram',
+    year: '2024',
     description:
-      'A global social media platform for connecting communities and sharing moments in real time.',
+      'A social platform built around community interaction, a readable feed, and a calm content-first layout.',
+    role: 'Social app interface',
+    focus: ['Feed structure', 'Profile flow', 'Conversation-ready layout'],
     tech: ['Next.js', 'React', 'Prisma', 'PostgreSQL'],
     link: 'https://worldgram.vercel.app',
     github: 'https://github.com/mulugirmay/worldgram',
     image: '/telegram.png',
-    year: '2024',
     aspect: 'aspect-[16/9]',
+    accent: 'from-[#152432] via-[#12202d] to-[#0f1a27]',
   },
   {
     title: 'QuickReach',
+    year: '2024',
     description:
-      'Emergency response system connecting citizens with dispatchers and volunteers in seconds.',
+      'An emergency response workflow focused on urgency, clarity, and quick handoff between users and responders.',
+    role: 'Emergency response system',
+    focus: ['High-priority CTA', 'Fast dispatch flow', 'Trust-first UI'],
     tech: ['Next.js', 'TypeScript', 'APIs', 'Maps'],
     link: 'https://quickreach.vercel.app',
     github: 'https://github.com/mulugirmay/quickreach',
     image: '/quickreach.png',
-    year: '2024',
     aspect: 'aspect-[16/9]',
+    accent: 'from-[#1b1730] via-[#111a2d] to-[#0d1623]',
   },
   {
     title: 'BizChat',
+    year: '2024',
     description:
-      'AI-powered communication platform with real-time messaging and collaboration tools.',
+      'A lightweight communication interface shaped for quick messaging, collaboration, and easy scanning.',
+    role: 'Messaging workspace',
+    focus: ['Realtime feel', 'Compact panels', 'Collaboration flow'],
     tech: ['React', 'WebSockets', 'AI', 'Node.js'],
     link: 'https://bizchat.vercel.app',
     github: 'https://github.com/mulugirmay/bizchat',
     image: '/bizcaht.png',
-    year: '2024',
     aspect: 'aspect-[16/9]',
+    accent: 'from-[#2b201a] via-[#1b1720] to-[#11151e]',
   },
   {
     title: 'Coin Lists',
+    year: '2023',
     description:
-      'A cryptocurrency portfolio tracker with price updates and simple market analysis.',
+      'A mobile-first crypto dashboard that makes balances, prices, and search feel immediate and readable.',
+    role: 'Portfolio dashboard',
+    focus: ['Balance at a glance', 'Search visibility', 'Mobile density'],
     tech: ['React', 'APIs', 'Charts', 'Redux'],
     link: 'https://coinlists.vercel.app',
     github: 'https://github.com/mulugirmay/coinlists',
     image: '/image.png',
-    year: '2023',
     aspect: 'aspect-[4/5]',
+    accent: 'from-[#101628] via-[#0f1320] to-[#090d17]',
   },
 ]
 
-function ProjectPreview({ project }: { project: (typeof projects)[number] }) {
+function ProjectPreview({
+  project,
+  flip,
+}: {
+  project: (typeof projects)[number]
+  flip: boolean
+}) {
   return (
-    <div className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#101b29] shadow-[0_20px_40px_rgba(0,0,0,0.22)]">
+    <div className={`overflow-hidden rounded-[1.75rem] border border-white/8 bg-gradient-to-br ${project.accent} shadow-[0_20px_60px_rgba(0,0,0,0.28)]`}>
       <div className={`relative ${project.aspect}`}>
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-contain bg-[#101b29] p-2"
+          className={`bg-[#101b29] p-2 object-contain ${flip ? 'object-right' : 'object-center'}`}
         />
       </div>
     </div>
@@ -68,69 +88,91 @@ export function Projects() {
   return (
     <section id="projects" className="px-4 py-16 sm:px-6 lg:py-20">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-14 text-center">
-          <h2 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+        <Reveal className="mb-14 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.35em] text-foreground/60">
+            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            Selected work
+          </div>
+          <h2 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             Projects
           </h2>
-          <div className="mx-auto mt-5 h-10 w-px bg-primary/80" />
-        </div>
+          <p className="mx-auto mt-4 max-w-2xl text-[0.98rem] leading-7 text-foreground/55">
+            Each project here is laid out like a small case study, with the screenshot, intent, and design
+            choices all working together.
+          </p>
+        </Reveal>
 
-        <div className="space-y-16">
+        <div className="space-y-12 lg:space-y-16">
           {projects.map((project, index) => {
-            const mediaFirst = index % 2 === 1
+            const flip = index % 2 === 1
 
             return (
-              <div key={project.title} className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
-                <div className={mediaFirst ? 'lg:order-2' : 'lg:order-1'}>
-                  <ProjectPreview project={project} />
-                </div>
+              <Reveal key={project.title} delay={index * 90}>
+                <article className="grid gap-7 rounded-[2rem] border border-white/6 bg-white/[0.02] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.16)] lg:grid-cols-2 lg:items-center lg:gap-10 lg:p-6">
+                  <div className={flip ? 'lg:order-2' : 'lg:order-1'}>
+                    <ProjectPreview project={project} flip={flip} />
+                  </div>
 
-                <div className={`space-y-5 ${mediaFirst ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div>
-                    <div className="mb-3 flex items-center gap-3 text-[0.8rem] uppercase tracking-[0.28em] text-foreground/40">
+                  <div className={`space-y-5 px-1 pb-2 ${flip ? 'lg:order-1 lg:pr-4' : 'lg:order-2 lg:pl-2'}`}>
+                    <div className="flex items-center gap-3 text-[0.78rem] uppercase tracking-[0.28em] text-foreground/40">
                       <span>{project.year}</span>
                       <span className="h-px w-8 bg-primary/80" />
+                      <span>{project.role}</span>
                     </div>
-                    <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-[2rem]">
-                      {project.title}
-                    </h3>
-                    <p className="mt-3 max-w-xl text-[0.96rem] leading-7 text-foreground/60">
-                      {project.description}
-                    </p>
-                  </div>
 
-                  <div className="flex flex-wrap gap-2.5">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.72rem] font-medium text-foreground/60"
+                    <div>
+                      <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-[2rem]">
+                        {project.title}
+                      </h3>
+                      <p className="mt-3 max-w-xl text-[0.98rem] leading-7 text-foreground/60">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      {project.focus.map((item) => (
+                        <div key={item} className="rounded-2xl border border-white/6 bg-[#122031] px-4 py-4">
+                          <p className="text-[0.8rem] font-semibold uppercase tracking-[0.22em] text-primary/80">
+                            Focus
+                          </p>
+                          <p className="mt-2 text-[0.92rem] leading-6 text-foreground/70">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2.5">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full bg-white/[0.04] px-3 py-1 text-[0.72rem] font-medium text-foreground/60"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-3 pt-2">
+                      <Link
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center rounded-sm bg-primary px-5 py-3 text-[0.92rem] font-medium text-primary-foreground transition-all hover:bg-[#ff8a70]"
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        View GitHub
+                      </Link>
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-sm border border-primary/70 px-5 py-3 text-[0.92rem] font-medium text-foreground transition-all hover:border-primary hover:bg-primary/10"
+                      >
+                        View project
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Link>
+                    </div>
                   </div>
-
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-sm bg-primary px-5 py-3 text-[0.92rem] font-medium text-primary-foreground transition-all hover:bg-[#ff8a70]"
-                    >
-                      View GitHub
-                    </Link>
-                    <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-sm border border-primary/70 px-5 py-3 text-[0.92rem] font-medium text-foreground transition-all hover:border-primary hover:bg-primary/10"
-                    >
-                      View project
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                </article>
+              </Reveal>
             )
           })}
         </div>

@@ -1,37 +1,39 @@
+'use client'
+
 import { Camera, CloudCog, Code2, Sparkles } from 'lucide-react'
 
 import { Reveal } from '@/components/reveal'
 
 const principles = [
   {
-    title: 'Visual systems',
-    description: 'I like clean spacing, strong hierarchy, and components that feel consistent across a whole product.',
+    title: 'Full-stack development',
+    description: 'Building end-to-end apps with React, Node.js, Express, MongoDB, and PostgreSQL across the MERN/PERN stack.',
     icon: Code2,
   },
   {
-    title: 'Practical motion',
-    description: 'Small transitions, subtle reveal states, and a little rhythm go a long way when used sparingly.',
+    title: 'Real-time systems',
+    description: 'Implementing live messaging, alerts, and order updates with Socket.IO, JWT auth, and REST APIs.',
     icon: Sparkles,
   },
   {
-    title: 'Launch-ready work',
-    description: 'I care about the handoff details too: responsiveness, polish, deployment, and avoiding rough edges.',
+    title: 'Mobile & tooling',
+    description: 'Shipping cross-platform Flutter apps and low-level projects in C++, with Git, Agile, and DSA practice.',
     icon: CloudCog,
   },
 ]
 
 const stats = [
   {
-    value: '120+',
-    label: 'Completed projects',
+    value: '5+',
+    label: 'Full-stack projects built',
   },
   {
-    value: '95%',
-    label: 'Client satisfaction',
+    value: '33',
+    label: 'LeetCode problems solved',
   },
   {
-    value: '10+',
-    label: 'Years of experience',
+    value: '2028',
+    label: 'Expected graduation (AAU)',
   },
 ]
 
@@ -50,12 +52,13 @@ export function Skills() {
 
             <div className="space-y-4">
               <h2 className="max-w-xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                I build interfaces that feel calm, fast, and deliberate.
+                Software engineering student with full-stack experience.
               </h2>
               <p className="max-w-xl text-[0.98rem] leading-7 text-foreground/60">
-                I started with photography, which taught me composition, framing, and attention to detail.
-                That same mindset now shapes how I design and ship web experiences: clear structure, clean
-                visual rhythm, and code that is practical to maintain.
+                I&apos;m a 3rd-year Software Engineering student at Addis Ababa University,
+                building full-stack web apps with the MERN/PERN stack and mobile apps with
+                Flutter. I&apos;m comfortable across frontend and backend development, real-time
+                features, and REST APIs.
               </p>
             </div>
 
@@ -93,8 +96,9 @@ export function Skills() {
                 </span>
               </div>
               <p className="mt-4 text-[1rem] leading-7 text-foreground/65">
-                I try to make each screen feel intentional. The goal is not just to look modern, but to
-                help people understand, navigate, and trust the product faster.
+                Relevant coursework includes Data Structures &amp; Algorithms, OOP, Database
+                Systems, and Operating Systems. I also work with Tailwind CSS, Redux Toolkit,
+                Vite, Supabase, and Linux CLI in personal projects.
               </p>
             </div>
 
@@ -116,8 +120,8 @@ export function Skills() {
                 Creative note
               </p>
               <p className="mt-3 text-[0.96rem] leading-7 text-foreground/70">
-                I like portfolios that feel like a designed experience, not a list of links. The small
-                details, from spacing to motion to typography, are what make a site memorable.
+                Open to remote and local internships or junior developer roles. I enjoy turning
+                project ideas into deployed products with clean architecture and real-time features.
               </p>
             </div>
           </Reveal>

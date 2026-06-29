@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -5,20 +7,20 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 
 const highlights = [
-  "Dark, focused interfaces",
-  "Smooth responsive layouts",
-  "Clean frontend handoff",
-  "Motion with restraint",
+  "Full-stack MERN/PERN apps",
+  "Real-time features with Socket.IO",
+  "Mobile apps with Flutter",
+  "REST APIs & JWT authentication",
 ];
 
 const skills = [
-  "HTML5",
-  "CSS",
   "JavaScript",
-  "Node.js",
   "React",
+  "Node.js",
+  "MongoDB",
+  "Flutter",
+  "Socket.IO",
   "Git",
-  "GitHub",
 ];
 
 export function Hero() {
@@ -49,16 +51,17 @@ export function Hero() {
             </div>
 
             <h1 className="max-w-xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              I design and build{" "}
+              I build{" "}
               <span className="text-gradient-coral">
-                calm, high-contrast web experiences.
+                full-stack web and mobile applications.
               </span>
             </h1>
 
             <p className="max-w-xl text-[1rem] leading-7 text-foreground/65">
-              From photography to front-end engineering, I bring composition,
-              clarity, and practical product thinking together in one polished
-              portfolio.
+              3rd-year Software Engineering student at Addis Ababa University with
+              hands-on experience across the MERN/PERN stack, real-time features,
+              and Flutter. Open to remote and local internships or junior developer
+              roles.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -112,7 +115,7 @@ export function Hero() {
             <div className="relative mt-4 h-[22rem] w-[22rem] overflow-hidden rounded-full border border-primary/15 bg-[#111c29] shadow-[0_0_0_1px_rgba(239,122,96,0.08),0_30px_80px_rgba(0,0,0,0.45)] sm:h-[25rem] sm:w-[25rem] lg:h-[28rem] lg:w-[28rem]">
               <Image
                 src="/profile.jpg"
-                alt="Jensen Omega"
+                alt="Mulu Girmay"
                 fill
                 priority
                 sizes="(max-width: 1024px) 22rem, 28rem"

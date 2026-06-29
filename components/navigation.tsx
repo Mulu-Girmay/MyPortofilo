@@ -11,7 +11,7 @@ export function Navigation() {
     <nav className="fixed top-0 w-full z-50 border-b border-white/6 bg-[#0d1722]/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="#home" className="text-[1rem] font-semibold tracking-tight text-foreground transition-colors hover:text-primary">
-          Jensen Omega
+          Mulu Girmay
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

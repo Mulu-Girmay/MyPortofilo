@@ -2,28 +2,25 @@
 
 const timeline = [
   {
+    year: '2028',
+    title: 'B.Sc. in Software Engineering',
+    company: 'Addis Ababa University',
+    description:
+      'Expected graduation. Relevant coursework: Data Structures & Algorithms, OOP, Database Systems, and Operating Systems.',
+  },
+  {
+    year: '2023 – Present',
+    title: 'Software Engineering Student (3rd Year)',
+    company: 'Addis Ababa University',
+    description:
+      'Building full-stack web apps with the MERN/PERN stack and mobile apps with Flutter while studying core computer science fundamentals.',
+  },
+  {
     year: '2024',
-    title: 'Full-Stack Developer',
-    company: 'Independent',
-    description: 'Building and shipping multiple full-stack applications, focusing on user experience and modern development practices.',
-  },
-  {
-    year: '2023',
-    title: 'Software Engineer',
-    company: 'Tech Startup',
-    description: 'Developed scalable backend systems and responsive frontend interfaces for a growing SaaS platform.',
-  },
-  {
-    year: '2022',
-    title: 'Junior Developer',
-    company: 'Web Development Agency',
-    description: 'Contributed to various client projects, improving skills in React, Node.js, and database management.',
-  },
-  {
-    year: '2021',
-    title: 'Education & Training',
-    company: 'Self-taught & Online Courses',
-    description: 'Completed advanced courses in full-stack development, data structures, and web technologies.',
+    title: 'Independent Project Developer',
+    company: 'Personal Projects',
+    description:
+      'Shipped WorldGram, BizChat, QuickReach, CryptoMobileApp, and MiniGit — covering real-time web apps, mobile development, and systems programming.',
   },
 ]
 
@@ -33,13 +30,13 @@ export function Experience() {
       <div className="max-w-5xl mx-auto">
         <div className="mb-20 space-y-4">
           <p className="text-primary font-bold text-sm uppercase tracking-widest">
-            Career Journey
+            Education & Projects
           </p>
           <h2 className="text-5xl lg:text-6xl font-bold text-foreground">
             Experience
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mt-6">
-            My professional evolution and key milestones throughout my development career.
+            My academic background and hands-on project work as a software engineering student.
           </p>
         </div>
 
@@ -49,17 +46,14 @@ export function Experience() {
               key={index}
               className="relative pl-8 md:pl-16 pb-12"
             >
-              {/* Timeline line */}
               {index !== timeline.length - 1 && (
                 <div className="absolute left-4 md:left-8 top-12 bottom-0 w-px bg-gradient-to-b from-primary to-transparent"></div>
               )}
 
-              {/* Timeline dot */}
               <div className="absolute left-0 top-2 w-8 h-8 bg-card border-2 border-primary rounded-full flex items-center justify-center">
                 <div className="w-3 h-3 bg-primary rounded-full"></div>
               </div>
 
-              {/* Content */}
               <div className="bg-card border border-border rounded-xl p-8 hover:border-primary transition-all duration-300">
                 <p className="text-sm font-bold text-primary uppercase tracking-widest mb-2">
                   {item.year}

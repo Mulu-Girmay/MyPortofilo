@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
@@ -9,38 +11,24 @@ const projects = [
     title: 'WorldGram',
     year: '2024',
     description:
-      'A social platform built around community interaction, a readable feed, and a calm content-first layout.',
-    role: 'Social app interface',
-    focus: ['Feed structure', 'Profile flow', 'Conversation-ready layout'],
-    tech: ['Next.js', 'React', 'Prisma', 'PostgreSQL'],
-    link: 'https://worldgram.vercel.app',
+      'Telegram-style real-time messaging app with private chats, group messaging, and channels. Includes JWT-based login, refresh tokens, and role-based access for group admins.',
+    role: 'Real-time messaging app',
+    focus: ['Socket.IO updates', 'JWT authentication', 'Vercel & Render deploy'],
+    tech: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Tailwind', 'JWT'],
+    link: 'https://world-gram.vercel.app',
     github: 'https://github.com/mulugirmay/worldgram',
     image: '/telegram.png',
     aspect: 'aspect-[16/9]',
     accent: 'from-[#152432] via-[#12202d] to-[#0f1a27]',
   },
   {
-    title: 'QuickReach',
-    year: '2024',
-    description:
-      'An emergency response workflow focused on urgency, clarity, and quick handoff between users and responders.',
-    role: 'Emergency response system',
-    focus: ['High-priority CTA', 'Fast dispatch flow', 'Trust-first UI'],
-    tech: ['Next.js', 'TypeScript', 'APIs', 'Maps'],
-    link: 'https://quickreach.vercel.app',
-    github: 'https://github.com/mulugirmay/quickreach',
-    image: '/quickreach.png',
-    aspect: 'aspect-[16/9]',
-    accent: 'from-[#1b1730] via-[#111a2d] to-[#0d1623]',
-  },
-  {
     title: 'BizChat',
     year: '2024',
     description:
-      'A lightweight communication interface shaped for quick messaging, collaboration, and easy scanning.',
-    role: 'Messaging workspace',
-    focus: ['Realtime feel', 'Compact panels', 'Collaboration flow'],
-    tech: ['React', 'WebSockets', 'AI', 'Node.js'],
+      'Business chat and order management app with a real-time messaging system that also handles order updates, so businesses can message and track orders in one place.',
+    role: 'Business chat & orders',
+    focus: ['Live order updates', 'Socket.IO events', 'Split frontend/backend'],
+    tech: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Socket.IO'],
     link: 'https://bizchat.vercel.app',
     github: 'https://github.com/mulugirmay/bizchat',
     image: '/bizcaht.png',
@@ -48,19 +36,34 @@ const projects = [
     accent: 'from-[#2b201a] via-[#1b1720] to-[#11151e]',
   },
   {
-    title: 'Coin Lists',
-    year: '2023',
+    title: 'QuickReach',
+    year: '2024',
     description:
-      'A mobile-first crypto dashboard that makes balances, prices, and search feel immediate and readable.',
-    role: 'Portfolio dashboard',
-    focus: ['Balance at a glance', 'Search visibility', 'Mobile density'],
-    tech: ['React', 'APIs', 'Charts', 'Redux'],
-    link: 'https://coinlists.vercel.app',
+      'Emergency response system where users send alerts and receive real-time responses. JWT authentication ensures only verified users can send and receive emergency requests.',
+    role: 'Emergency response system',
+    focus: ['Real-time alerts', 'Verified users', 'Alert history API'],
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'JWT'],
+    link: 'https://quickreach.vercel.app',
+    github: 'https://github.com/mulugirmay/quickreach',
+    image: '/quickreach.png',
+    aspect: 'aspect-[16/9]',
+    accent: 'from-[#1b1730] via-[#111a2d] to-[#0d1623]',
+  },
+  {
+    title: 'CryptoMobileApp',
+    year: '2024',
+    description:
+      'Cross-platform Flutter app that fetches and displays live cryptocurrency prices via a public API, with a clean responsive UI for both Android and iOS.',
+    role: 'Cryptocurrency tracker',
+    focus: ['Live price data', 'Cross-platform UI', 'Public API integration'],
+    tech: ['Flutter', 'Dart', 'REST API'],
+    link: 'https://github.com/mulugirmay/coinlists',
     github: 'https://github.com/mulugirmay/coinlists',
     image: '/image.png',
     aspect: 'aspect-[4/5]',
     accent: 'from-[#101628] via-[#0f1320] to-[#090d17]',
   },
+  
 ]
 
 function ProjectPreview({
@@ -97,8 +100,7 @@ export function Projects() {
             Projects
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[0.98rem] leading-7 text-foreground/55">
-            Each project here is laid out like a small case study, with the screenshot, intent, and design
-            choices all working together.
+            Full-stack web apps, mobile projects, and systems programming work from my portfolio and CV.
           </p>
         </Reveal>
 
@@ -160,15 +162,17 @@ export function Projects() {
                       >
                         View GitHub
                       </Link>
-                      <Link
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-sm border border-primary/70 px-5 py-3 text-[0.92rem] font-medium text-foreground transition-all hover:border-primary hover:bg-primary/10"
-                      >
-                        View project
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Link>
+                      {project.link !== project.github && (
+                        <Link
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-sm border border-primary/70 px-5 py-3 text-[0.92rem] font-medium text-foreground transition-all hover:border-primary hover:bg-primary/10"
+                        >
+                          View project
+                          <ArrowUpRight className="h-4 w-4" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </article>

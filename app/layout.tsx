@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Jensen Omega | Software Developer',
-  description: 'Dark editorial portfolio inspired by the provided reference design.',
+  title: 'Mulu Girmay | Software Engineering Student',
+  description: 'Portfolio of Mulu Girmay — 3rd-year Software Engineering student at AAU building full-stack web and mobile apps.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -38,8 +38,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html lang="en" className="bg-background" suppressHydrationWarning>
+      <body
+        className="font-sans antialiased bg-background text-foreground"
+        suppressHydrationWarning
+      >
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

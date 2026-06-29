@@ -1,7 +1,7 @@
 'use client'
 
 import type { CSSProperties, ReactNode } from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -12,6 +12,8 @@ type RevealProps = {
   threshold?: number
 }
 
+const subscribe = () => () => {}
+
 export function Reveal({
   children,
   className,
@@ -20,8 +22,11 @@ export function Reveal({
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false)
 
   useEffect(() => {
+    if (!mounted) return
+
     const node = ref.current
     if (!node) return
 
@@ -37,12 +42,13 @@ export function Reveal({
 
     observer.observe(node)
     return () => observer.disconnect()
-  }, [threshold])
+  }, [mounted, threshold])
 
   return (
     <div
       ref={ref}
-      className={cn('reveal', visible && 'reveal-visible', className)}
+      suppressHydrationWarning
+      className={cn('reveal', mounted && visible && 'reveal-visible', className)}
       style={{ '--reveal-delay': `${delay}ms` } as CSSProperties}
     >
       {children}

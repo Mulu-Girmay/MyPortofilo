@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
 
@@ -17,8 +19,8 @@ export function Contact() {
                 Let&apos;s make the next screen feel intentional.
               </h2>
               <p className="max-w-2xl text-[0.96rem] leading-7 text-foreground/60">
-                If you want a portfolio, product landing page, or dashboard that feels polished and memorable,
-                I&apos;m happy to help shape it.
+                Open to remote and local internships or junior developer roles. Reach out if you&apos;d
+                like to collaborate or discuss an opportunity.
               </p>
 
               <div className="grid gap-3 pt-2 sm:grid-cols-3">
@@ -26,14 +28,14 @@ export function Contact() {
                   <Mail className="mt-1 h-4 w-4 text-primary" />
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
-                    <p className="text-sm text-foreground/55">mulu.girmay@example.com</p>
+                    <p className="text-sm text-foreground/55">mgirmay038@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 rounded-2xl border border-white/6 bg-[#122031] px-4 py-4">
                   <Phone className="mt-1 h-4 w-4 text-primary" />
                   <div>
                     <p className="text-sm font-medium text-foreground">Phone</p>
-                    <p className="text-sm text-foreground/55">+251 123 456 789</p>
+                    <p className="text-sm text-foreground/55">+251 938 011 081</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 rounded-2xl border border-white/6 bg-[#122031] px-4 py-4">
@@ -48,7 +50,7 @@ export function Contact() {
 
             <div className="flex gap-3">
               <Link
-                href="mailto:mulu.girmay@example.com"
+                href="mailto:mgirmay038@gmail.com"
                 className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-3 text-[0.92rem] font-medium text-primary-foreground transition-all hover:bg-[#ff8a70]"
               >
                 Get in touch

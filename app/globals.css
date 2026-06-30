@@ -210,6 +210,20 @@
   .float-slow {
     animation: float-slow 8s ease-in-out infinite;
   }
+
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .border-glass {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .shadow-glass {
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+  }
 }
 
 @keyframes float-slow {

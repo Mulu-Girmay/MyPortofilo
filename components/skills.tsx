@@ -37,6 +37,25 @@ const stats = [
   },
 ]
 
+const skillCategories = [
+  {
+    title: 'Languages',
+    skills: ['C++', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'Dart'],
+  },
+  {
+    title: 'Frontend',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Redux Toolkit', 'Flutter', 'Vite'],
+  },
+  {
+    title: 'Backend',
+    skills: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Socket.IO', 'REST APIs', 'JWT'],
+  },
+  {
+    title: 'Tools & Others',
+    skills: ['Git', 'Docker', 'Linux CLI', 'Agile/Scrum', 'Supabase', 'Postman'],
+  },
+]
+
 export function Skills() {
   return (
     <section id="about" className="px-4 py-12 sm:px-6 lg:py-16">
@@ -126,6 +145,45 @@ export function Skills() {
             </div>
           </Reveal>
         </div>
+
+        {/* Technical Skills Categories */}
+        <div className="mt-16 pt-12 border-t border-white/6">
+          <Reveal className="mb-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.35em] text-foreground/60">
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
+              Stack
+            </div>
+            <h3 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Technical Skills
+            </h3>
+            <p className="mx-auto mt-3 max-w-xl text-[0.95rem] leading-6 text-foreground/50">
+              My core technologies grouped by area of expertise.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {skillCategories.map((category, idx) => (
+              <Reveal key={category.title} delay={idx * 100} className="h-full">
+                <div className="group h-full rounded-2xl border border-white/6 bg-white/[0.02] p-6 transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.04] hover:shadow-[0_8px_32px_0_rgba(239,122,96,0.08)] backdrop-blur-md">
+                  <h4 className="text-[1.05rem] font-semibold tracking-wide text-foreground group-hover:text-primary transition-colors duration-300">
+                    {category.title}
+                  </h4>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-lg border border-white/4 bg-white/[0.03] px-2.5 py-1 text-[0.8rem] text-foreground/65 transition-all duration-300 hover:border-primary/20 hover:text-foreground"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   )

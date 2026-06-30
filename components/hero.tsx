@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Sparkles } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
 
@@ -69,11 +69,19 @@ export function Hero() {
                 View projects
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <a
+                href="/resume.pdf"
+                download="Mulu_Girmay_Resume.pdf"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/20 bg-white/[0.04] px-5 py-3 text-[0.95rem] font-medium text-foreground transition-all duration-300 hover:bg-white/[0.08] hover:border-white/30"
+              >
+                Download Resume
+                <Download className="h-4 w-4 text-primary" />
+              </a>
               <Link
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-sm border border-primary/80 px-5 py-3 text-[0.95rem] font-medium text-foreground transition-all duration-300 hover:border-primary hover:bg-primary/10"
               >
-                Let&apos;s talk
+                Contact Me
               </Link>
             </div>
 

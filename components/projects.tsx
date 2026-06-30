@@ -74,13 +74,13 @@ function ProjectPreview({
   flip: boolean
 }) {
   return (
-    <div className={`overflow-hidden rounded-[1.75rem] border border-white/8 bg-gradient-to-br ${project.accent} shadow-[0_20px_60px_rgba(0,0,0,0.28)]`}>
-      <div className={`relative ${project.aspect}`}>
+    <div className={`overflow-hidden rounded-[1.75rem] border border-white/8 bg-gradient-to-br ${project.accent} shadow-[0_20px_60px_rgba(0,0,0,0.28)] transition-all duration-500 group-hover:border-primary/30`}>
+      <div className={`relative ${project.aspect} overflow-hidden`}>
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className={`bg-[#101b29] p-2 object-contain ${flip ? 'object-right' : 'object-center'}`}
+          className={`bg-[#101b29] p-2 object-contain transition-transform duration-500 group-hover:scale-[1.04] ${flip ? 'object-right' : 'object-center'}`}
         />
       </div>
     </div>
@@ -110,7 +110,7 @@ export function Projects() {
 
             return (
               <Reveal key={project.title} delay={index * 90}>
-                <article className="grid gap-7 rounded-[2rem] border border-white/6 bg-white/[0.02] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.16)] lg:grid-cols-2 lg:items-center lg:gap-10 lg:p-6">
+                <article className="group grid gap-7 rounded-[2rem] border border-white/6 bg-white/[0.02] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.16)] lg:grid-cols-2 lg:items-center lg:gap-10 lg:p-6 transition-all duration-300 hover:border-primary/30 hover:bg-white/[0.04] hover:shadow-[0_20px_80px_rgba(239,122,96,0.06)] hover:translate-y-[-2px] backdrop-blur-md">
                   <div className={flip ? 'lg:order-2' : 'lg:order-1'}>
                     <ProjectPreview project={project} flip={flip} />
                   </div>

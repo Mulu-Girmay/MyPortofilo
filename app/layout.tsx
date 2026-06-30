@@ -5,23 +5,14 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Mulu Girmay | Software Engineering Student',
   description: 'Portfolio of Mulu Girmay — 3rd-year Software Engineering student at AAU building full-stack web and mobile apps.',
-  generator: 'v0.app',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
       {
         url: '/icon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon.svg',
   },
 }
 

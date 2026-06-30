@@ -38,10 +38,7 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <Reveal className="space-y-7">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/[0.04] px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.35em] text-foreground/60">
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
-                Portfolio
-              </div>
+            
               <p className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 Hello<span className="text-primary">.</span>
               </p>
